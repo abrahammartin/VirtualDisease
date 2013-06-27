@@ -51,7 +51,7 @@ public class DataCollector extends BroadcastReceiver implements LocationListener
 		
 		while (isRunning)
 		{
-			System.out.println(new Date().toGMTString());
+			System.out.println(new Date().toString());
 			updateStart = System.currentTimeMillis();
 			
 			// If bluetooth has been turned off, turn it back on again.

@@ -664,8 +664,8 @@ public class VirtualDisease extends Activity implements EventHandler
 						"applications.\n\nIt is recommended that you run " +
 						"this application in the background rather than quitting " +
 						"it completely.");
-				dialog.setButton("Run in background.", quitListener);
-				dialog.setButton2("Quit completely.", quitListener);
+				dialog.setButton(AlertDialog.BUTTON_POSITIVE, "Run in background.", quitListener);
+				dialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Quit completely.", quitListener);
 				dialog.show();
 				break;
 		}
@@ -896,10 +896,10 @@ class QuitMenuListener implements android.content.DialogInterface.OnClickListene
 	{
 		switch (which)
 		{
-			case AlertDialog.BUTTON1:
+			case AlertDialog.BUTTON_POSITIVE:
 				parent.moveTaskToBack(true);
 				break;
-			case AlertDialog.BUTTON2:
+			case AlertDialog.BUTTON_NEGATIVE:
 				parent.quit(0);
 				break;
 		}
