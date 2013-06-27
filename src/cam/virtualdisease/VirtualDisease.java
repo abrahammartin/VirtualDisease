@@ -7,7 +7,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Random;
 import java.util.concurrent.LinkedBlockingQueue;
 import org.haggle.Attribute;
@@ -31,6 +30,7 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -84,8 +84,15 @@ public class VirtualDisease extends Activity implements EventHandler
         if (savedInstanceState == null)
         {
         	// Get bluetooth adapter and turn it on.
-    		bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-    		bluetoothAdapter.enable();
+    		// BluetoothAdapter.getDefaultAdapter().enable();
+        	
+        	bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+            if (null == bluetoothAdapter)
+            {
+                Log.e("LOG_TAG","Bluetooth adapter is NULL!!!");
+            } else {
+            	bluetoothAdapter.enable();
+            }
         	
         	// Load diseases.
         	diseases = new LinkedBlockingQueue<Disease>();

@@ -7,18 +7,6 @@
 	<uses-sdk
         android:minSdkVersion="10"
         android:targetSdkVersion="17" />  
-   	    
-    <application android:icon="@drawable/icon" android:label="@string/app_name" android:screenOrientation="portrait">
-        <activity android:name=".VirtualDisease"
-                  android:label="@string/app_name"
-                  android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-    </application>
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
@@ -27,4 +15,26 @@
 	<uses-permission android:name="android.permission.BLUETOOTH_ADMIN"></uses-permission>
 	<uses-permission android:name="android.permission.INTERNET"></uses-permission>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
+		    
+    <application 
+        android:icon="@drawable/icon" 
+        android:allowBackup="true" 
+        android:label="@string/app_name" 
+        android:screenOrientation="portrait" >
+        <activity android:name="cam.virtualdisease.VirtualDisease"
+                  android:label="@string/app_name"
+                  android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <activity android:name="cam.virtualdisease.Constants" />
+        <activity android:name="cam.virtualdisease.DataCollector" />
+        <activity android:name="cam.virtualdisease.datatypes.Address" />
+        <activity android:name="cam.virtualdisease.datatypes.Disease" />
+        <activity android:name="cam.virtualdisease.datatypes.Measurement" />
+
+    </application>
 </manifest> 
