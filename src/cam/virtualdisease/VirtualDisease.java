@@ -315,7 +315,7 @@ public class VirtualDisease extends Activity implements EventHandler
 							if (diseases.isEmpty())
 							{
 								stringBuilder.append("You are healthy.");
-                                imagehealthStatus.setImageResource(R.drawable.recovered);
+                                imagehealthStatus.setImageResource(R.drawable.ok);
 							}
 							else
 							{
