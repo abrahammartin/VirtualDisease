@@ -17,24 +17,10 @@ public class Measurement
 		this.addresses = addresses;
 		this.location = location;
 		this.timestamp = timestamp;
-		
-		if (this.location == null)
-		{
-			noGPSData = true;
-		}
-		else
-		{
-			noGPSData = false;
-		}
-		
-		if (this.addresses == null || this.addresses.isEmpty())
-		{
-			noBluetoothData = true;
-		}
-		else
-		{
-			noBluetoothData = false;
-		}
+
+        noGPSData = (this.location == null);
+
+        noBluetoothData = (this.addresses == null || this.addresses.isEmpty());
 	}
 	
 	public String toXML()

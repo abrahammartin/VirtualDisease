@@ -645,10 +645,7 @@ public class VirtualDisease extends Activity implements EventHandler
 	    	case Constants.GPS_REQUEST_CODE:
 	    		if (resultCode == 0)
 	    		{
-	    			if ((Settings.Secure.getString(getContentResolver(), Settings.Secure.LOCATION_PROVIDERS_ALLOWED)).contains("gps"))
-	    			{
-		    			isGPSEnabled = true;
-	    			}
+	    			isGPSEnabled = (Settings.Secure.getString(getContentResolver(), Settings.Secure.LOCATION_PROVIDERS_ALLOWED)) != null ? (Settings.Secure.getString(getContentResolver(), Settings.Secure.LOCATION_PROVIDERS_ALLOWED)).contains("gps") : false;
 
 	    			Message msg = new Message();
 	    			msg.what = Constants.UPDATE_GPS_STATUS;

@@ -51,19 +51,11 @@ public class Disease
 	
 	public boolean isInfectious()
 	{
-		if (System.currentTimeMillis() >= (timeContracted + exposedDuration) && System.currentTimeMillis() <= (timeContracted + exposedDuration + infectiousDuration))
-		{
-			return true;
-		}
-		return false;
-	}
+        return System.currentTimeMillis() >= (timeContracted + exposedDuration) && System.currentTimeMillis() <= (timeContracted + exposedDuration + infectiousDuration);
+    }
 	
 	public boolean isCured()
 	{
-		if (System.currentTimeMillis() > (timeContracted + exposedDuration + infectiousDuration))
-		{
-			return true;
-		}
-		return false;
-	}
+        return System.currentTimeMillis() > (timeContracted + exposedDuration + infectiousDuration);
+    }
 }

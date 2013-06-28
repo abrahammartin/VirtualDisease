@@ -126,7 +126,7 @@ public class DataCollector extends BroadcastReceiver implements LocationListener
 					{
 						Thread.sleep(1000);
 					}
-					catch (InterruptedException e){}
+					catch (InterruptedException ignored){}
 				}
 			}
 			else
@@ -153,7 +153,7 @@ public class DataCollector extends BroadcastReceiver implements LocationListener
 				{
 					Thread.sleep(Constants.BLUETOOTH_SCAN_DURATION);
 				}
-				catch (InterruptedException e){}
+				catch (InterruptedException ignored){}
 			
 				// Cancel Bluetooth scan.
 				parent.getBluetoothAdapter().cancelDiscovery();
@@ -226,7 +226,7 @@ public class DataCollector extends BroadcastReceiver implements LocationListener
 					Thread.sleep(waitTime);
 				}
 			}
-			catch (InterruptedException e){}
+			catch (InterruptedException ignored){}
 		}
 	}
 
@@ -238,7 +238,7 @@ public class DataCollector extends BroadcastReceiver implements LocationListener
 		{	
 			BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
 			String address = device.getAddress().replaceAll(":", "");
-			
+
 			if (!addresses.contains(address))
 			{
 				addresses.add(address);
