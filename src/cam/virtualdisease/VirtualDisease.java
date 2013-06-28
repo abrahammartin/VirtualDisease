@@ -34,6 +34,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -59,6 +60,7 @@ public class VirtualDisease extends Activity implements EventHandler
 	private StringBuilder stringBuilder;
 	private TextView bluetoothAddress;
 	private TextView healthStatus;
+    private ImageView imagehealthStatus;
 	private TextView dataCollectionBluetoothStatus;
 	private TextView dataCollectionGPSStatus;
 	
@@ -261,13 +263,14 @@ public class VirtualDisease extends Activity implements EventHandler
     		
     		// We will only consider haggle packets that contain this attribute.
     		attribute = new Attribute("Disease", "Disease", 1);
-    		
+
     		// Initiate listeners.
     		quitListener = new QuitMenuListener(this);
     		
     		// Create instances of changeable layout.
     		bluetoothAddress = (TextView) findViewById(R.id.deviceBluetoothAddress);
     		healthStatus = (TextView) findViewById(R.id.healthStatus);
+            imagehealthStatus = (ImageView) findViewById(R.id.imagehealthStatus);
 			dataCollectionBluetoothStatus = (TextView) findViewById(R.id.dataCollectionBluetoothStatus);
 			dataCollectionGPSStatus = (TextView) findViewById(R.id.dataCollectionGPSStatus);
     		
@@ -312,6 +315,7 @@ public class VirtualDisease extends Activity implements EventHandler
 							if (diseases.isEmpty())
 							{
 								stringBuilder.append("You are healthy.");
+                                imagehealthStatus.setImageResource(R.drawable.recovered);
 							}
 							else
 							{
@@ -352,6 +356,14 @@ public class VirtualDisease extends Activity implements EventHandler
 										}
 									}
 								}
+
+                                if (infections == 0)
+                                {
+                                    //Recovered from all the infections
+                                    imagehealthStatus.setImageResource(R.drawable.recovered);
+                                } else {
+                                    imagehealthStatus.setImageResource(R.drawable.bad);
+                                }
 							}
 							
 							healthStatus.setText(stringBuilder.toString());
