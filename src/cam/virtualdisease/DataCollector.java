@@ -95,7 +95,7 @@ public class DataCollector extends BroadcastReceiver implements LocationListener
 					{
 						DataObject dataObject = new DataObject(disease.getBytes());
 						dataObject.addAttribute(parent.getAttribute().getName(), parent.getAttribute().getValue(), parent.getAttribute().getWeight());
-						dataObject.addHash();
+						dataObject.addFileHash();
 						
 						parent.getPublished().add(dataObject);
 						parent.getHaggleHandle().publishDataObject(dataObject);

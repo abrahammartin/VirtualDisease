@@ -15,6 +15,7 @@ import org.haggle.EventHandler;
 import org.haggle.Handle;
 import org.haggle.LaunchCallback;
 import org.haggle.Node;
+
 import cam.virtualdisease.datatypes.Disease;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -889,6 +890,20 @@ public class VirtualDisease extends Activity implements EventHandler
 	public void setLocalBluetoothAddress(String address)
 	{
 		localBluetoothAddress = address;
+	}
+
+	@Override
+	public void onEventLoopStart() {
+		// TODO Auto-generated method stub
+		Log.d("LOG_TAG", "Event loop started.");
+		
+	}
+
+	@Override
+	public void onEventLoopStop() {
+		// TODO Auto-generated method stub
+		Log.d("LOG_TAG", "Event loop stopped.");
+		
 	}
 }
 
