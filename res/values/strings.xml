@@ -2,4 +2,8 @@
 <resources>
     <string name="hello">Hello World, VirtualDisease!</string>
     <string name="app_name">Virtual Disease Experiment</string>
+    <string name="pref_title_resetDB">Reset DataBase</string>
+    <string name="pref_summary_resetDB">Erases the DataBase of the application. All contacts and diseases will be deleted.</string>
+    <string name="pref_title_populateDB">Create Diseases</string>
+    <string name="pref_summary_populateDB">Set the diseases database with all the known diseases</string>
 </resources>

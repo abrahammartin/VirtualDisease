@@ -51,7 +51,7 @@ public class VirtualDisease extends Activity implements EventHandler
 	
 	// Listeners.
 	private QuitMenuListener quitListener;
-	
+
 	// Files.
 	private File diseaseFile;
 	private File logFile;
@@ -267,7 +267,7 @@ public class VirtualDisease extends Activity implements EventHandler
 
     		// Initiate listeners.
     		quitListener = new QuitMenuListener(this);
-    		
+
     		// Create instances of changeable layout.
     		bluetoothAddress = (TextView) findViewById(R.id.deviceBluetoothAddress);
     		healthStatus = (TextView) findViewById(R.id.healthStatus);
@@ -665,10 +665,11 @@ public class VirtualDisease extends Activity implements EventHandler
 	// Called when user selects an item from the menu.
 	public boolean onOptionsItemSelected(MenuItem item)
 	{
+        AlertDialog dialog;
 		switch (item.getItemId())
 		{
 			case R.id.quit:
-				AlertDialog dialog = new AlertDialog.Builder(this).create();
+				dialog = new AlertDialog.Builder(this).create();
 				dialog.setMessage("This application can run in the background, " +
 						"collecting and sending data whilst you use other " +
 						"applications.\n\nIt is recommended that you run " +
@@ -678,11 +679,15 @@ public class VirtualDisease extends Activity implements EventHandler
 				dialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Quit completely.", quitListener);
 				dialog.show();
 				break;
+            case R.id.preferences:
+                Intent intent = new Intent(this, SettingsActivity.class);
+                startActivity(intent);
+                break;
 		}
 		return true;
 	}
-	
-	// Initiates haggle.
+
+    // Initiates haggle.
 	public int initHaggle()
 	{
 		if (haggleHandle != null) return Constants.HAGGLE_STATUS_OK; // Do nothing if haggle is already running.

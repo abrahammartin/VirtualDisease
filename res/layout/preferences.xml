@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <cam.virtualdisease.DeleteDatabaseDialogPreference
+            android:summary="@string/pref_summary_resetDB"
+            android:title="@string/pref_title_resetDB"
+            android:dialogMessage="@string/pref_summary_resetDB"
+            android:dialogTitle="@string/pref_title_resetDB"
+            android:negativeButtonText="No"
+            android:positiveButtonText="Yes"
+            />
+
+    <cam.virtualdisease.PopulateDiseaseDatabaseDialogPreference
+            android:summary="@string/pref_summary_populateDB"
+            android:title="@string/pref_title_populateDB"
+            android:dialogMessage="@string/pref_summary_populateDB"
+            android:dialogTitle="@string/pref_title_populateDB"
+            android:negativeButtonText="No"
+            android:positiveButtonText="Yes"
+            />
+
+</PreferenceScreen>

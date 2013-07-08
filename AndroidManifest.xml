@@ -9,12 +9,12 @@
         android:targetSdkVersion="17" />  
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
-	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
-	<uses-permission android:name="android.permission.BLUETOOTH"></uses-permission>
-	<uses-permission android:name="android.permission.BLUETOOTH_ADMIN"></uses-permission>
-	<uses-permission android:name="android.permission.INTERNET"></uses-permission>
-	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+	<uses-permission android:name="android.permission.BLUETOOTH"/>
+	<uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+	<uses-permission android:name="android.permission.INTERNET"/>
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 		    
     <application 
         android:icon="@drawable/icon" 
@@ -30,11 +30,7 @@
             </intent-filter>
         </activity>
         
-        <activity android:name="cam.virtualdisease.Constants" />
-        <activity android:name="cam.virtualdisease.DataCollector" />
-        <activity android:name="cam.virtualdisease.datatypes.Address" />
-        <activity android:name="cam.virtualdisease.datatypes.Disease" />
-        <activity android:name="cam.virtualdisease.datatypes.Measurement" />
+        <activity android:name="cam.virtualdisease.SettingsActivity" />
 
     </application>
 </manifest> 
