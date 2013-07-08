@@ -23,6 +23,7 @@ import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.location.LocationManager;
 import android.location.LocationProvider;
@@ -81,7 +82,7 @@ public class VirtualDisease extends Activity implements EventHandler
     @Override public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setRequestedOrientation(1); // Stop screen from rotating!
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.main);
         
         if (savedInstanceState == null)
@@ -326,12 +327,14 @@ public class VirtualDisease extends Activity implements EventHandler
 									if (d.isInfectious())
 									{
 										infections++;
-										stringBuilder.append(d.getName() + " from " + d.getSender() + " (Infectious)\n");
+                                        String tempstring = d.getName() + " from " + d.getSender() + " (Infectious)\n";
+										stringBuilder.append(tempstring);
 									}
 									else if (!d.isCured())
 									{
 										infections++;
-										stringBuilder.append(d.getName() + " from " + d.getSender() + " (Exposed)\n");
+                                        String tempstring = d.getName() + " from " + d.getSender() + " (Exposed)\n";
+										stringBuilder.append(tempstring);
 									}
 								}
 								
@@ -353,7 +356,8 @@ public class VirtualDisease extends Activity implements EventHandler
 									{
 										if (d.isCured())
 										{
-											stringBuilder.append(d.getName() + " from " + d.getSender() + "\n");
+                                            String tempstring = d.getName() + " from " + d.getSender() + "\n";
+											stringBuilder.append(tempstring);
 										}
 									}
 								}
@@ -426,7 +430,8 @@ public class VirtualDisease extends Activity implements EventHandler
 											}
 											else
 											{
-												stringBuilder.append(" (" + numOfSatellites + " Satellites)");
+                                                String tempstring = " (" + numOfSatellites + " Satellites)";
+												stringBuilder.append(tempstring);
 											}
 											break;
 									}
@@ -659,7 +664,7 @@ public class VirtualDisease extends Activity implements EventHandler
 	// Stops screen from rotating.
 	@Override public void onConfigurationChanged(Configuration newConfig)
 	{
-		setRequestedOrientation(1);
+		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 	}
 	
 	// Called when user selects an item from the menu.
