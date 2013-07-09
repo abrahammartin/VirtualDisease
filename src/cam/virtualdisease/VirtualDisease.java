@@ -109,108 +109,59 @@ public class VirtualDisease extends Activity implements EventHandler
 				File root = Environment.getExternalStorageDirectory();
 				File dir = new File(root, "VirtualDisease");
 				
-				if (dir.exists())
+				if (!dir.exists())
 				{
-					diseaseFile = new File(dir, Constants.DISEASE_FILE);
-					try
-					{
-						if (!diseaseFile.exists() && !diseaseFile.createNewFile())
-						{
-							System.out.println("Cannot create disease database on SD Card.");
-							quit(1);
-						}
-					}
-					catch (IOException ex)
-					{
-						System.out.println("Cannot create disease database on SD Card.");
-						quit(1);
-					}
-					
-					logFile = new File(dir, Constants.MEASUREMENTS_FILE);
-					try
-					{
-						if (!logFile.exists() && !logFile.createNewFile())
-						{
-							System.out.println("Cannot create disease log on SD Card.");
-							quit(1);
-						}
-					}
-					catch (IOException ex)
-					{
-						System.out.println("Cannot create disease log on SD Card.");
-						quit(1);
-					}
-					
-					extraDiseaseFile = new File(dir, Constants.EXTRA_DISEASE_FILE);
-					try
-					{
-						if (!extraDiseaseFile.exists() && !extraDiseaseFile.createNewFile())
-						{
-							System.out.println("Cannot create extra disease database on SD Card.");
-							quit(1);
-						}
-					}
-					catch (IOException e)
-					{
-						System.out.println("Cannot create extra disease database on SD Card.");
-						quit(1);
-					}
-				}
-				else
-				{
-					if (dir.mkdir())
-					{
-						diseaseFile = new File(dir, Constants.DISEASE_FILE);
-						try
-						{
-							if (!diseaseFile.createNewFile())
-							{
-								System.out.println("Cannot create disease database on SD Card.");
-								quit(1);
-							}
-						}
-						catch (IOException ex)
-						{
-							System.out.println("Cannot create disease database on SD Card.");
-							quit(1);
-						}
-						
-						logFile = new File(dir, Constants.MEASUREMENTS_FILE);
-						try
-						{
-							if (!logFile.createNewFile())
-							{
-								System.out.println("Cannot create disease log on SD Card.");
-								quit(1);
-							}
-						}
-						catch (IOException ex)
-						{
-							System.out.println("Cannot create disease log on SD Card.");
-							quit(1);
-						}
-						
-						extraDiseaseFile = new File(dir, Constants.EXTRA_DISEASE_FILE);
-						try
-						{
-							if (!extraDiseaseFile.createNewFile())
-							{
-								System.out.println("Cannot create disease log on SD Card.");
-								quit(1);
-							}
-						}
-						catch (IOException ex)
-						{
-							System.out.println("Cannot create disease log on SD Card.");
-							quit(1);
-						}
-					}
-					else
-					{
-						System.out.println("Cannot create storage directory on SD Card.");
-						quit(1);
-					}
-				}
+                    if (!dir.mkdir())
+                    {
+                        System.out.println("Cannot create storage directory on SD Card.");
+                        quit(1);
+                    }
+                }
+
+                diseaseFile = new File(dir, Constants.DISEASE_FILE);
+                try
+                {
+                    if (!diseaseFile.exists() && !diseaseFile.createNewFile())
+                    {
+                        System.out.println("Cannot create disease database on SD Card.");
+                        quit(1);
+                    }
+                }
+                catch (IOException ex)
+                {
+                    System.out.println("Cannot create disease database on SD Card.");
+                    quit(1);
+                }
+
+                logFile = new File(dir, Constants.MEASUREMENTS_FILE);
+                try
+                {
+                    if (!logFile.exists() && !logFile.createNewFile())
+                    {
+                        System.out.println("Cannot create disease log on SD Card.");
+                        quit(1);
+                    }
+                }
+                catch (IOException ex)
+                {
+                    System.out.println("Cannot create disease log on SD Card.");
+                    quit(1);
+                }
+
+                extraDiseaseFile = new File(dir, Constants.EXTRA_DISEASE_FILE);
+                try
+                {
+                    if (!extraDiseaseFile.exists() && !extraDiseaseFile.createNewFile())
+                    {
+                        System.out.println("Cannot create extra disease database on SD Card.");
+                        quit(1);
+                    }
+                }
+                catch (IOException e)
+                {
+                    System.out.println("Cannot create extra disease database on SD Card.");
+                    quit(1);
+                }
 			}
 			else
 			{
