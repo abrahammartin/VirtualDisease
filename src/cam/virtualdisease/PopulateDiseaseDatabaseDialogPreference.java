@@ -28,8 +28,6 @@ public class PopulateDiseaseDatabaseDialogPreference extends DialogPreference {
             }
         }
 
-
-
         private void populateDatabase() {
             String state = Environment.getExternalStorageState();
             if (Environment.MEDIA_MOUNTED.equals(state))
@@ -66,38 +64,6 @@ public class PopulateDiseaseDatabaseDialogPreference extends DialogPreference {
                 catch (IOException ex)
                 {
                     System.out.println("Cannot create disease database on SD Card.");
-                    ((Activity)getContext()).finish();
-                }
-
-                File logFile = new File(dir, Constants.MEASUREMENTS_FILE);
-                try
-                {
-                    logFile.delete();
-                    if (!logFile.exists() && !logFile.createNewFile())
-                    {
-                        System.out.println("Cannot create disease log on SD Card.");
-                        ((Activity)getContext()).finish();
-                    }
-                }
-                catch (IOException ex)
-                {
-                    System.out.println("Cannot create disease log on SD Card.");
-                    ((Activity)getContext()).finish();
-                }
-
-                File extraDiseaseFile = new File(dir, Constants.EXTRA_DISEASE_FILE);
-                try
-                {
-                    extraDiseaseFile.delete();
-                    if (!extraDiseaseFile.exists() && !extraDiseaseFile.createNewFile())
-                    {
-                        System.out.println("Cannot create extra disease database on SD Card.");
-                        ((Activity)getContext()).finish();
-                    }
-                }
-                catch (IOException e)
-                {
-                    System.out.println("Cannot create extra disease database on SD Card.");
                     ((Activity)getContext()).finish();
                 }
             }
