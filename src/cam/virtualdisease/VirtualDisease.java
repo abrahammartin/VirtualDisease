@@ -168,33 +168,9 @@ public class VirtualDisease extends Activity implements EventHandler
 				System.out.println("Cannot read/write on SD Card.");
 				quit(1);
 			}
-			
-			// Read diseases from database.
-			try
-			{
-				BufferedReader br = new BufferedReader(new FileReader(diseaseFile));
-				while (br.ready())
-				{
-					String line = br.readLine().trim();
-					if (!line.equals(""))
-					{
-						String[] d = line.split(",");
-						Disease disease = new Disease(d[0], d[1], Long.parseLong(d[2]), Long.parseLong(d[3]), Long.parseLong(d[4]), Double.parseDouble(d[5]));
-						diseases.add(disease);
-						System.out.println("Added " + d[0] + ".");
-					}
-				}
-			}
-			catch (FileNotFoundException ex)
-			{
-				System.out.println("Cannot find disease database.");
-				quit(1);
-			}
-			catch (IOException ex)
-			{
-				System.out.println("Cannot read disease database.");
-				quit(1);
-			}
+
+            // Read diseases from database.
+            loadfromdatabase();
 			
 			// Make universal random object.
 			rand = new Random();
@@ -432,7 +408,36 @@ public class VirtualDisease extends Activity implements EventHandler
         }
     }
 
-	@Override public void onInterestListUpdate(Attribute[] arg0){}
+    private void loadfromdatabase() {
+        // Read diseases from database.
+        try
+        {
+            BufferedReader br = new BufferedReader(new FileReader(diseaseFile));
+            while (br.ready())
+            {
+                String line = br.readLine().trim();
+                if (!line.equals(""))
+                {
+                    String[] d = line.split(",");
+                    Disease disease = new Disease(d[0], d[1], Long.parseLong(d[2]), Long.parseLong(d[3]), Long.parseLong(d[4]), Double.parseDouble(d[5]));
+                    diseases.add(disease);
+                    System.out.println("Added " + d[0] + ".");
+                }
+            }
+        }
+        catch (FileNotFoundException ex)
+        {
+            System.out.println("Cannot find disease database.");
+            quit(1);
+        }
+        catch (IOException ex)
+        {
+            System.out.println("Cannot read disease database.");
+            quit(1);
+        }
+    }
+
+    @Override public void onInterestListUpdate(Attribute[] arg0){}
 
 	@Override public void onNeighborUpdate(Node[] arg0){}
 
